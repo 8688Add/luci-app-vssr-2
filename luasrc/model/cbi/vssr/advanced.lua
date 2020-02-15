@@ -84,24 +84,11 @@ o.default = 1080
 o.rmempty = false
 
 end
-
-
--- [[ 更新设置 ]]--
-
-s = m:section(TypedSection,"socks5_proxy",translate("Update Setting")) 
+-- [[ adblock ]]--
+s = m:section(TypedSection, "global", translate("adblock settings"))
 s.anonymous = true
 
-o = s:option(Button,"gfw_data",translate("GFW List Data"))
-o.rawhtml  = true
-o.template = "vssr/refresh"
-o.value =tostring(math.ceil(gfw_count)) .. " " .. translate("Records")
-
-o = s:option(Button,"ip_data",translate("China IP Data"))
-o.rawhtml  = true
-o.template = "vssr/refresh"
-o.value =ip_count .. " " .. translate("Records")
-
-
-
+o = s:option(Flag, "adblock", translate("Enable adblock"))
+o.rmempty = false
 return m
 
